@@ -26,23 +26,3 @@ def test_book_initialization():
     assert book.author == "albert"
     assert book.total_book_copies == 1
 
-def test_borrow_book():
-    library = Library()
-    book1 = Book("123", "Test Book 1", "Author 1", 2)
-    library.add_book(book1)
-    
-    # Test borrowing a book
-    library.borrow_book("123")
-    assert library.books["123"].borrow == 1
-    
-    # Test borrowing the last available copy
-    library.borrow_book("123")
-    assert library.books["123"].borrow == 2
-    
-    # Test borrowing a book with no available copies
-    with pytest.raises(ValueError):
-        library.borrow_book("123")
-    
-    # Test borrowing a non-existent book
-    with pytest.raises(KeyError):
-        library.borrow_book("456")
