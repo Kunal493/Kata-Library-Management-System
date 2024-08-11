@@ -61,3 +61,16 @@ def test_return_book():
     # Test returning a non-existent book
     with pytest.raises(KeyError):
         library.return_book("456")
+
+def test_display_available_books():
+    library = Library()
+    book1 = Book("123", "Test Book 1", "Author 1", 2)
+    book2 = Book("456", "Test Book 2", "Author 2", 1)
+    library.add_book(book1)
+    library.add_book(book2)
+    
+    # Test display of available books
+    available_books = library.display_available_books()
+    assert len(available_books) == 2
+    
+    
