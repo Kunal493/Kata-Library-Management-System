@@ -39,4 +39,10 @@ def test_borrow_book():
     library.borrow_book("123")
     assert library.books["123"].borrow == 2
     
+    # Test borrowing a book with no available copies
+    with pytest.raises(ValueError):
+        library.borrow_book("123")
     
+    # Test borrowing a non-existent book
+    with pytest.raises(KeyError):
+        library.borrow_book("456")
