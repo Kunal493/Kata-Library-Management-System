@@ -26,4 +26,3 @@ def test_book_initialization():
     assert book.author == "albert"
     assert book.total_book_copies == 1
 
-    #
