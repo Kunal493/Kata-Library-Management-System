@@ -49,4 +49,9 @@ class Library:
         else:
             raise ValueError("All borrowed copies have already been returned.")
 
-    
+    def display_available_books(self):
+        """
+        Display all available books in the library.       
+        :return: A list of Book instances that have available copies.
+        """
+        return [book for book in self.books.values() if book.total_book_copies - book.borrow > 0]
