@@ -43,3 +43,15 @@ def test_borrow_book():
     # Test borrowing a non-existent book
     with pytest.raises(KeyError):
         library.borrow_book("456")
+
+def test_return_book():
+    library = Library()
+    book1 = Book("123", "Test Book 1", "Author 1", 2)
+    library.add_book(book1)
+    library.borrow_book("123")
+    
+    # Test returning a book
+    library.return_book("123")
+    assert library.books["123"].borrow == 0
+    
+    
