@@ -8,7 +8,7 @@ def check_book_parameter(isbn, title, author, total_book_copies):
     if not isinstance(author, str) or not author:
         raise ValueError("Author must be a non-empty string.")
     
-    if not isinstance(isbn, str) or not isbn:
+    if not isinstance(isbn, int) or not isbn:
         raise ValueError("ISBN must be a non-empty string.")
 
     if not isinstance(total_book_copies, int) or total_book_copies < 0:
