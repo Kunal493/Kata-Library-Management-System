@@ -34,3 +34,19 @@ class Library:
             book.borrow += 1
         else:
             raise ValueError("No available copies to borrow.")
+
+    def return_book(self, isbn: str):
+        """
+        Return a book to the library.
+        :param isbn: The ISBN number of the book to be returned.
+        """
+        if isbn not in self.books:
+            raise KeyError("Book not found in the library.")
+        
+        book = self.books[isbn]
+        if book.borrow > 0:
+            book.borrow -= 1
+        else:
+            raise ValueError("All borrowed copies have already been returned.")
+
+    
