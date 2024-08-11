@@ -21,4 +21,16 @@ class Library:
         else:
             self.books[book.isbn] = book
 
-    
+    def borrow_book(self, isbn: str):
+        """
+        Borrow a book from the library.       
+        :param isbn: The ISBN number of the book to be borrowed.
+        """
+        if isbn not in self.books:
+            raise KeyError("Book not found in the library.")
+        
+        book = self.books[isbn]
+        if book.total_book_copies - book.borrow > 0:
+            book.borrow += 1
+        else:
+            raise ValueError("No available copies to borrow.")

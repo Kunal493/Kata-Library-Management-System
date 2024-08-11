@@ -22,5 +22,3 @@ def test_add_book():
     library.add_book(book2)
     assert len(library.books) == 2
     assert library.books["456"].total_book_copies == 1
-    
-    
