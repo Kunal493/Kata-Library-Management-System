@@ -1,3 +1,6 @@
+from exception_handling import check_book_parameter
+
+
 class Book:
     def __init__(self, isbn: str, title: str, author: str, total_book_copies: int = 1):
         """
