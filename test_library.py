@@ -73,4 +73,9 @@ def test_display_available_books():
     available_books = library.display_available_books()
     assert len(available_books) == 2
     
+    # Test after borrowing a book
+    library.borrow_book("123")
+    available_books = library.display_available_books()
+    assert len(available_books) == 2
+    
     
